@@ -40,7 +40,7 @@ var config = {
     ],
     devServer: {
         historyApiFallback: true,
-        stats: 'minimal'
+        // stats: 'minimal'
     }
 };
 
