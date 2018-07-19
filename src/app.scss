@@ -1,25 +1,9 @@
 @import '~bilo-ui/dist/bilo-ui.scss';
 
-body {
-  font-family: 'Ubuntu', sans-serif;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-
-  background-image: url("http://getwallpapers.com/wallpaper/full/c/0/4/95521.jpg");
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  background-position: 50% 0%;
-}
-
-// @import './styles/loader.scss';
-
 // Colors
 $col-lightgrey:  $col-lightgrey;
 $col-background: $col-background;
-$col-active: #00adee !global;
+$col-active: #FF1133 !global;
 $col-accent: #00ffee !global;
 $col-text: $col-text;
 $col-dark: #1d1d1d;
@@ -32,22 +16,75 @@ $content-y: $dim-navbar;
 $content-height: calc(100vh - #{$dim-navbar});
 $content-width: calc(100vw - #{$dim-sidebar});
 
-// Layout
+
 body {
-    font-family: 'Quicksand', sans-serif;
-}
+    font-family: 'Ubuntu', sans-serif;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    background-image: url("https://scontent.fcpt7-1.fna.fbcdn.net/v/t1.0-9/10172770_484496078317299_9208665297327379025_n.jpg?_nc_cat=0&oh=5475707e7106e1e0aacf757dd44bbcc2&oe=5BDD2618");
+    // background-image: url("http://farm3.static.flickr.com/2143/5756180799_e3b76cd492_o.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .background-image {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 0;
+
+    // display: block;
+    background-image: url('https://scontent.fcpt7-1.fna.fbcdn.net/v/t1.0-9/10172770_484496078317299_9208665297327379025_n.jpg?_nc_cat=0&oh=5475707e7106e1e0aacf757dd44bbcc2&oe=5BDD2618');
+    width: 100%;
+    height: 100%;
+
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 
 $padding: 2em;
+$padding-top: 14em;
 .page {
     position: relative;
-    background: $col-background;
-    color: $col-text;
-    width: 100vw;
+    color: #333;
+    width: 100%;
+    height: calc(100vh);
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+
+    .title {
+        font-size: 2em;
+    }
 }
 
 .page-padded {
     height: calc(100% - 2 * #{$padding});
+    width: calc(100% - 2 * #{$padding});
     padding: $padding;
+
+    .offset-sidebar {
+        padding-left: $padding-top;
+        width: calc(100% - #{$padding} - #{$padding-top});
+    }
+
+    .offset-header {
+        padding-top: $padding-top;
+        height: calc(100% - #{$padding} - #{$padding-top});
+    }
 }
 
  // Elements

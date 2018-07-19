@@ -1,2 +1,18 @@
 // @import '~bilo-ui/dist/bilo-ui.scss';
 @import '../../app.scss';
+
+.photo {
+    height: 15em;
+    width: auto;
+    transition: height 1s;
+    transition-delay: 0.1s;
+    -webkit-transition: height 1s;
+    -webkit-transition-delay: 0.1s; /* Safari */
+    filter: grayscale(70%);
+    margin: 1em;
+    &:hover {
+        filter: contrast(150%);
+        height: 20em;
+        width: auto;
+    }
+}

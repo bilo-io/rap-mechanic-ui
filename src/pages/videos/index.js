@@ -28,18 +28,21 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-
 export class Videos extends Component {
     render() {
         return (
-            <div className='page'>
-                <div className='title'>Photos</div>
+            <div>
+                <div className='title'>Videos</div>
                 {
-                    youtubeVids.map(id => <Youtube
-                        width='40%'
-                        height='30%'
-                        videoId={id[0]}
-                    />)
+                    youtubeVids.map(id => <div style={{
+                        position: 'relative',
+                        margin: '1em'
+                    }}><Youtube
+                            width={640}
+                            height={400}
+                            videoId={id}
+                    />
+                    </div>)
                 }
             </div>
         )

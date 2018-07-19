@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export class Contact extends Component {
     render() {
         return (
-            <div className='page'>
+            <div>
                 <div className='title'>Contact</div>
             </div>
         )

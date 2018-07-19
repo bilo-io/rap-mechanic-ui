@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export class Bio extends Component {
     render() {
         return (
-            <div className='page'>
+            <div>
                 <div className='title'>Bio</div>
             </div>
         )

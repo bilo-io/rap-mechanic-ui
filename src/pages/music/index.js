@@ -25,12 +25,21 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 
 export class Music extends Component {
+    getSoundcloudDetails = () => {
+        const clientId = 'idiykIpBJvGcwHGMw9L8ApZ9uYDEq2J4'
+        const url = `https://api-v2.soundcloud.com/me/play-history/tracks?client_id=${clientId}&limit=25&offset=0&linked_partitioning=1&app_version=1531925069&app_locale=en`
+        fetch(url)
+            .then( response => console.log('tracks: ', response))
+            .catch(error => console.log({error}))
+    }
     componentWillMount() {
+        this.getSoundcloudDetails()
         console.log('componentWillMount')
         const clientId = 'idiykIpBJvGcwHGMw9L8ApZ9uYDEq2J4'
         const trackId = ''
         const trackUrl = 'https://soundcloud.com/user493736/mind-soul-yannickdrm-prod'
         const streamUrl = `http://api.soundcloud.com/${trackId}/stream?client_id=${clientId}`
+        console.log({streamUrl})
         fetch(`http://api.soundcloud.com/resolve?url=${trackUrl}&client_id=${clientId}`)
             .then( response => {
                 console.log({response})
@@ -44,7 +53,7 @@ export class Music extends Component {
     }
     render() {
         return (
-            <div className='page'>
+            <div>
                 <div className='title'>Music</div>
                 <a href='https://soundcloud.com/user493736' target='_blank'>
                     {/* <img className='icon' src='https://www.shareicon.net/download/2016/08/01/640420_media.svg'/> */}
