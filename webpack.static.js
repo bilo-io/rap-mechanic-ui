@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const Visualizer = require('webpack-visualizer-plugin');
 const path = require('path');
 const DIST = path.resolve(__dirname, 'docs/');
 const SRC = path.resolve(__dirname, 'src/');
@@ -45,8 +44,8 @@ var config = {
         ]
     },
     plugins: [
-        // new Visualizer({filename: './stats.html'}),
         new HtmlWebpackPlugin({template: './src/index.html', filename: 'index.html', inject: 'body'}),
+        // new Visualizer({filename: './stats.html'}),
         // new CopyWebpackPlugin([
         //     {
         //         from: 'node_modules/highlight.js/styles/monokai.css',

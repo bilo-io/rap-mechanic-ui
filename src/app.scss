@@ -43,11 +43,11 @@ body {
     width: 100%;
     height: 100%;
 
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    -webkit-filter: blur(5px) brightness(50%);
+    -moz-filter: blur(5px) brightness(50%);
+    -o-filter: blur(5px) brightness(50%);
+    -ms-filter: blur(5px) brightness(50%);
+    filter: blur(5px) brightness(50%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,9 +58,9 @@ $padding: 2em;
 $padding-top: 14em;
 .page {
     position: relative;
-    color: #333;
-    width: 100%;
-    height: calc(100vh);
+    color: #ddd;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     overflow-y: auto;
     padding: 0;
@@ -72,8 +72,8 @@ $padding-top: 14em;
 }
 
 .page-padded {
-    height: calc(100% - 2 * #{$padding});
-    width: calc(100% - 2 * #{$padding});
+    height: calc(100vh - 2 * #{$padding});
+    width: calc(100vw - 2 * #{$padding});
     padding: $padding;
 
     .offset-sidebar {

@@ -15,6 +15,10 @@ const youtubeVids = [
     'lLUagm16FAA'
 ]
 
+const facebookVideos = [
+    'https://www.facebook.com/Yannick213/videos/10156595553498986/'
+]
+
 const mapStateToProps = (state, ownProps) => {
     let _state = state.videos
     return {
@@ -37,12 +41,14 @@ export class Videos extends Component {
                     youtubeVids.map(id => <div style={{
                         position: 'relative',
                         margin: '1em'
-                    }}><Youtube
-                            width={640}
-                            height={400}
+                    }}>
+                        <Youtube
                             videoId={id}
-                    />
-                    </div>)
+                            maxWidth={640}
+                            maxHeight={400}
+                        />
+                    </div>
+                    )
                 }
             </div>
         )

@@ -14,10 +14,10 @@ import Sidebar from './components/sidebar'
 
 require('./app.scss')
 
+const path = window.location.pathname.split('/')
+window.rootPath = `/${path[1]}`
+console.log({path, rootPath: window.rootPath})
 export default class App extends React.Component {
-    goToTab = tab => {
-        console.log('navigate to ' + tab.label)
-    }
     render() {
         const tabs = [{
                 label: 'Home',
@@ -41,6 +41,7 @@ export default class App extends React.Component {
         ]
 
         const isSidebar = true
+        const { rootPath } = window
         return (
             <div>
                 <Router>
@@ -49,20 +50,17 @@ export default class App extends React.Component {
                         <div className={`page page-padded`}>
                             <div className={`offset-${isSidebar ? 'sidebar' : 'header'}`}>
                                 <Switch>
-                                    <Route exact path="/" component={Home} />
-                                    <Route exact path="/bio" component={Bio} />
-                                    <Route exact path="/music" component={Music} />
-                                    <Route exact path="/videos" component={Videos} />
-                                    <Route exact path="/photos" component={Photos} />
-                                    <Route exact path="/contact" component={Contact} />
+                                    <Route exact path={`${rootPath}/`} component={Home} />
+                                    <Route exact path={`${rootPath}/bio`} component={Bio} />
+                                    <Route exact path={`${rootPath}/music`} component={Music} />
+                                    <Route exact path={`${rootPath}/videos`} component={Videos} />
+                                    <Route exact path={`${rootPath}/photos`} component={Photos} />
+                                    <Route exact path={`${rootPath}/contact`} component={Contact} />
                                 </Switch>
                             </div>
                         </div>
                         { isSidebar
-                            ? <Sidebar
-                                tabs={tabs}
-                                onTabSelect={this.goToTab}
-                            />
+                            ? <Sidebar tabs={tabs} />
                             : <Header
                                 tabs={tabs}
                                 onTabSelect={this.goToTab}

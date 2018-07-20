@@ -1,6 +1,6 @@
 {
   "name": "rap-mechanic-ui",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A digital portfolio for Yannick, the rap Mechanic",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,8 @@
     "build": "rm -rf ./dist && webpack -p",
     "build:docs": "rm -rf docs && UI_ENV=production webpack -p --config webpack.static.js",
     "start": "node ./artifact/server.js",
+    "bump": "node ./scripts/semver.js",
+    "deploy": "bash ./scripts/deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
