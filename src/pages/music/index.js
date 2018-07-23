@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import React, { Component }  from 'react'
 import Player from 'react-soundcloud-player'
-import { Iframe } from 'bilo-ui'
+import { Iframe, SoundCloud } from 'bilo-ui'
 import {
     myAction
 } from './actions';
 import './style.scss'
+
+const tracks = require('./tracks.json')
 
 const soundcloudClips = [
     '392809137'
@@ -32,8 +34,17 @@ export class Music extends Component {
             .then( response => console.log('tracks: ', response))
             .catch(error => console.log({error}))
     }
+    getSongs() {
+        const trackUrl = 'https://soundcloud.com/user493736/tracks'
+        const userUrl = 'https://soundcloud.com/user493736'
+        const url = `https://api.soundcloud.com/resolve.json?url=${tracksUrl}&client_id=idiykIpBJvGcwHGMw9L8ApZ9uYDEq2J4`
+        fetch(url)
+            .then( response => console.log({response}))
+            .catch( error => console.log({error}))
+    }
     componentWillMount() {
         this.getSoundcloudDetails()
+        // this.getSongs()
         console.log('componentWillMount')
         const clientId = 'idiykIpBJvGcwHGMw9L8ApZ9uYDEq2J4'
         const trackId = ''
@@ -60,7 +71,7 @@ export class Music extends Component {
                 </a>
                 {/* <iframe src='https://www.reverbnation.com/yannickdarapmechanic'> */}
                 {
-                    soundcloudClips.map( id => <Player audio_id={id} />)
+                    tracks.map( track => <SoundCloud trackId={ track.id } /> )
                 }
 
             </div>
